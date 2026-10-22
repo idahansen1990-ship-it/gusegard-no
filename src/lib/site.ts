@@ -1,9 +1,10 @@
 // Faste opplysninger om gården. Endres de, endres de overalt på siden.
 export const site = {
   navn: "Guse Gård",
+  butikk: "Fedabua",
   url: "https://gusegard.no",
   beskrivelse:
-    "Guse Gård i Kvinesdal: høner, lamaer, sauer og kuer, gårdsbutikk med lokalmat, bursdag på gården, besøksgård, villmark og hytte til leie.",
+    "Guse Gård i Kvinesdal: gårdsbutikken Fedabua med viltkjøtt, speket vilt, saft, syltetøy og honning, dyr å besøke, bursdag på gården, villmark og hytte til leie.",
   telefon: [
     { vis: "99 36 10 65", href: "tel:+4799361065" },
     { vis: "92 41 87 51", href: "tel:+4792418751" },
@@ -17,15 +18,20 @@ export const site = {
   airbnb: "https://www.airbnb.com/rooms/13713485",
 } as const;
 
-export const meny = [
-  { href: "/", tekst: "Hjem" },
+export type MenyPunkt = { href: string; tekst: string; kunMobil?: boolean };
+
+// «Hjem» vises bare i mobilmenyen. På bred skjerm er logoen veien til forsiden.
+export const meny: readonly MenyPunkt[] = [
+  { href: "/", tekst: "Hjem", kunMobil: true },
   { href: "/om-garden", tekst: "Om gården" },
   { href: "/dyr", tekst: "Dyr på gården" },
   { href: "/aktiviteter", tekst: "Aktiviteter" },
   { href: "/overnatting", tekst: "Overnatting" },
-  { href: "/gardsbutikk", tekst: "Gårdsbutikk" },
-] as const;
+  { href: "/gardsbutikk", tekst: "Fedabua" },
+  { href: "/kjott-og-vilt", tekst: "Kjøtt og vilt" },
+];
 
-export function mailto(emne: string) {
-  return `mailto:${site.epost}?subject=${encodeURIComponent(emne)}`;
+export function mailto(emne: string, tekst?: string) {
+  const body = tekst ? `&body=${encodeURIComponent(tekst)}` : "";
+  return `mailto:${site.epost}?subject=${encodeURIComponent(emne)}${body}`;
 }

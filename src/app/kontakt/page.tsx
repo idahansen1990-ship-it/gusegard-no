@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SideTopp } from "@/components/SideTopp";
 import { site } from "@/lib/site";
 
@@ -15,7 +16,7 @@ export default function Kontakt() {
       <SideTopp
         overtittel="Kontakt oss"
         tittel="Ta kontakt"
-        ingress="Ring eller send en e-post om bursdag, besøk, villmark, gårdsbutikken eller sagbruket."
+        ingress="Ring eller send en e-post om bursdag, besøk, villmark, Fedabua, kjøtt og vilt, overnatting eller sagbruket."
       />
 
       <section className="seksjon">
@@ -59,6 +60,28 @@ export default function Kontakt() {
                 </a>
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="seksjon seksjon--tone">
+        <div className="container">
+          <div className="rutenett rutenett--3">
+            <Link href="/gardsbutikk" className="aktivitet">
+              <h3>Handle i Fedabua</h3>
+              <p>Gårdsbutikken vår med vilt, saft, syltetøy og honning.</p>
+              <span className="aktivitet__pil" aria-hidden="true">→</span>
+            </Link>
+            <Link href="/kjott-og-vilt" className="aktivitet">
+              <h3>Bestill kjøtt og vilt</h3>
+              <p>Se utvalget og send bestilling på telefon eller e-post.</p>
+              <span className="aktivitet__pil" aria-hidden="true">→</span>
+            </Link>
+            <Link href="/overnatting" className="aktivitet">
+              <h3>Bestill overnatting</h3>
+              <p>Hytte på gården med plass til fem.</p>
+              <span className="aktivitet__pil" aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>

@@ -32,7 +32,7 @@ export function Nav() {
       >
         <ul className="nav__liste">
           {meny.map((punkt) => (
-            <li key={punkt.href}>
+            <li key={punkt.href} className={punkt.kunMobil ? "nav__kunmobil" : undefined}>
               <Link
                 href={punkt.href}
                 className="nav__lenke"

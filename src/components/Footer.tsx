@@ -8,8 +8,8 @@ export function Footer() {
         <div>
           <p className="bunn__navn">Guse Gård</p>
           <p className="bunn__tekst">
-            Dyr, natur og lokalmat i Kvinesdal. Bursdag, besøk og villmark etter
-            avtale.
+            Dyr, natur og lokalmat i Kvinesdal. Gårdsbutikken Fedabua, bursdag,
+            besøk og villmark.
           </p>
         </div>
         <div>
