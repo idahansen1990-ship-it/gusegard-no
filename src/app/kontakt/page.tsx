@@ -90,12 +90,20 @@ export default function Kontakt() {
         <div className="container smal sentrert">
           <h2>Følg oss</h2>
           <p className="ingress">
-            Du finner oss også på Facebook.
+            Du finner oss også på Instagram og Facebook.
           </p>
           <div className="knapperad knapperad--midt">
             <a
-              href={site.facebook}
+              href={site.instagram}
               className="btn btn--primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Guse Gård på Instagram
+            </a>
+            <a
+              href={site.facebook}
+              className="btn btn--ghost"
               target="_blank"
               rel="noopener noreferrer"
             >

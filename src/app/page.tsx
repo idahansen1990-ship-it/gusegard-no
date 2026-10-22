@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const tall = [
   { stor: "2004", liten: "overtok vi gården" },
-  { stor: "7", liten: "slags dyr å møte" },
+  { stor: String(dyr.length), liten: "slags dyr å møte" },
   { stor: "2", liten: "bevaringsverdige saueraser" },
   { stor: "fra 200 kr", liten: "per person for bursdag" },
 ];
@@ -223,6 +223,25 @@ export default function Forside() {
               {site.epost}
             </a>
           </div>
+          <p className="hurtiglenker hurtiglenker--midt">
+            <span>Følg oss også på</span>
+            <a
+              className="tekstlenke"
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+            <a
+              className="tekstlenke"
+              href={site.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+          </p>
         </div>
       </section>
     </>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Egenart } from "@/components/Egenart";
 import { SideTopp } from "@/components/SideTopp";
@@ -74,40 +75,50 @@ export default function KjottOgVilt() {
       />
 
       <section className="seksjon">
-        <div className="container">
-          <div className="seksjonstopp">
-            <div>
-              <p className="overtittel">Utvalget</p>
-              <h2>Dette tilbyr vi</h2>
-            </div>
-          </div>
-          <div className="rutenett rutenett--3">
-            {produkter.map((p) => (
-              <article key={p.tittel} className="produkt">
-                <span className="produkt__merke">{p.merke}</span>
-                <h3>{p.tittel}</h3>
-                <p>{p.tekst}</p>
-                <a
-                  className="tekstlenke"
-                  href={mailto(`Bestilling: ${p.tittel.toLowerCase()}`, bestillingsmal)}
-                >
-                  Bestill {p.tittel.toLowerCase()} →
-                </a>
+        <div className="container todeler todeler--topp">
+          <figure className="bilde">
+            <Image
+              src="/bilder/elgkalv-kjottdeig.jpg"
+              alt="Vakuumpakket elgkalv-kjøttdeig med Guse Gård-etikett, 500 gram"
+              fill
+              sizes="(min-width: 820px) 480px, 100vw"
+              style={{ objectFit: "cover", objectPosition: "50% 45%" }}
+            />
+            <figcaption>
+              Vakuumpakket elgkjøtt, merket med Guse Gård, navn og vekt.
+            </figcaption>
+          </figure>
+          <div>
+            <p className="overtittel">Utvalget</p>
+            <h2>Dette tilbyr vi</h2>
+            <div className="produktliste">
+              {produkter.map((p) => (
+                <article key={p.tittel} className="produkt">
+                  <span className="produkt__merke">{p.merke}</span>
+                  <h3>{p.tittel}</h3>
+                  <p>{p.tekst}</p>
+                  <a
+                    className="tekstlenke"
+                    href={mailto(`Bestilling: ${p.tittel.toLowerCase()}`, bestillingsmal)}
+                  >
+                    Bestill {p.tittel.toLowerCase()} →
+                  </a>
+                </article>
+              ))}
+              <article className="produkt produkt--annet">
+                <span className="produkt__merke">Mer fra Fedabua</span>
+                <h3>Saft, syltetøy og honning</h3>
+                <p>Krydderoljer, edikk og urtesalt finner du også i gårdsbutikken.</p>
+                <Link className="tekstlenke" href="/gardsbutikk">
+                  Se hele utvalget →
+                </Link>
               </article>
-            ))}
-            <article className="produkt produkt--annet">
-              <span className="produkt__merke">Mer fra Fedabua</span>
-              <h3>Saft, syltetøy og honning</h3>
-              <p>Krydderoljer, edikk og urtesalt finner du også i gårdsbutikken.</p>
-              <Link className="tekstlenke" href="/gardsbutikk">
-                Se hele utvalget →
-              </Link>
-            </article>
+            </div>
+            <p className="notis">
+              Utvalg og priser avtaler vi når du tar kontakt. Spør oss hva vi har
+              på lager akkurat nå.
+            </p>
           </div>
-          <p className="notis">
-            Utvalg og priser avtaler vi når du tar kontakt. Spør oss hva vi har
-            på lager akkurat nå.
-          </p>
         </div>
       </section>
 

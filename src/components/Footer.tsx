@@ -45,6 +45,11 @@ export function Footer() {
           <h2 className="bunn__tittel">Følg oss</h2>
           <ul className="bunn__liste">
             <li>
+              <a href={site.instagram} rel="noopener noreferrer" target="_blank">
+                Instagram
+              </a>
+            </li>
+            <li>
               <a href={site.facebook} rel="noopener noreferrer" target="_blank">
                 Facebook
               </a>

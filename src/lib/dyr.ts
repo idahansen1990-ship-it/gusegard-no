@@ -5,7 +5,8 @@ export type DyrId =
   | "kalkun"
   | "sau"
   | "lama"
-  | "storfe";
+  | "storfe"
+  | "gris";
 
 export type Dyr = {
   id: DyrId;
@@ -13,6 +14,10 @@ export type Dyr = {
   tekst: string;
   /** Sti under /public, f.eks. "/bilder/lama.jpg". Vises i stedet for tegningen. */
   bilde?: string;
+  /** Beskrivelse av bildet for skjermlesere. */
+  alt?: string;
+  /** Hvilken del av bildet som skal vises når det beskjæres, f.eks. "50% 20%". */
+  fokus?: string;
 };
 
 export const dyr: Dyr[] = [
@@ -43,12 +48,17 @@ export const dyr: Dyr[] = [
   {
     id: "sau",
     navn: "Sau",
+    bilde: "/bilder/sau.jpg",
+    alt: "En flokk sauer i en sperring på gården",
     tekst:
       "Vi har tre norske raser: norsk hvit sau, blæset sau og gammel norsk spelsau. De to siste er bevaringsverdige raser i Norge. I 2010 doblet vi besetningen fra rundt 20 til ca. 50 vinterfôrede sauer.",
   },
   {
     id: "lama",
     navn: "Lama",
+    bilde: "/bilder/lama.jpg",
+    alt: "En lama med en liten unge som ligger ved beina hennes",
+    fokus: "50% 14%",
     tekst:
       "De to første lamaene kom i 2008, og dem reiste vi helt til Haukeli i Telemark for å hente. Året etter kom to nye hopper. Flokken består hovedsakelig av to hopper og en hingst.",
   },
@@ -57,5 +67,13 @@ export const dyr: Dyr[] = [
     navn: "Storfe",
     tekst:
       "Siste ankomst på gården var to storfe av rasen limousin, høsten 2011.",
+  },
+  {
+    id: "gris",
+    navn: "Gris",
+    tekst: "Det bor også griser på gården.",
+    bilde: "/bilder/gris.jpg",
+    alt: "Fire griser som spiser fra et kar",
+    fokus: "50% 55%",
   },
 ];
