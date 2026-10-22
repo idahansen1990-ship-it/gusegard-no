@@ -15,6 +15,13 @@ const gamleSider: Record<string, string> = {
 };
 
 const nextConfig: NextConfig = {
+  // Bilder fra Instagram vises via vår egen bildetjeneste, så besøkende laster dem ikke fra Meta.
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "**.cdninstagram.com" },
+      { protocol: "https", hostname: "**.fbcdn.net" },
+    ],
+  },
   // Roten må være denne mappen, ellers leter Turbopack etter lockfiler og kode i mapper over.
   turbopack: { root: path.join(__dirname) },
   async redirects() {
