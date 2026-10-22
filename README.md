@@ -1,6 +1,6 @@
 # Guse Gård (gusegard.no)
 
-Ny nettside for Guse Gård i Kvinesdal. Next.js 16 (App Router), helt statisk: ingen database, ingen innlogging og ingen eksterne tjenester. Skrifter (Fraunces og Inter) følger med i pakken, så siden henter ingenting fra Google.
+Ny nettside for Guse Gård i Kvinesdal. Next.js 16 (App Router), i hovedsak statisk: ingen database og ingen innlogging. Eneste eksterne tjeneste er det valgfrie Instagram-feltet (se under). Skrifter (Fraunces og Inter) følger med i pakken, så siden henter ingenting fra Google.
 
 ```bash
 npm install
@@ -8,6 +8,7 @@ npm run dev      # http://localhost:3000
 npm run build    # bygger alle sider statisk
 npm run lint
 npm run typecheck
+npm test         # tester Instagram-henteren
 ```
 
 ## Sider
@@ -46,6 +47,28 @@ Siden fungerer uten foto: dyra har egne tegninger. For å bruke ekte bilder av d
 ```
 
 Bildet vises da i stedet for tegningen (4:3, beskjæres automatisk). Bilder bør være under ca. 300 kB hver.
+
+## Instagram-felt på forsiden
+
+Forsiden kan vise de 6 nyeste innleggene fra [@gusegard](https://www.instagram.com/gusegard/) under «Siste fra gården». Siden henter dem selv fra Instagrams offisielle API, én gang i timen. Det kreves ingen plugin, og siden laster ingen skript fra Instagram. Bildene vises via vårt eget domene, så besøkende kobler seg ikke til Meta og trenger ikke samtykkeboks for dette.
+
+**Uten nøkkel** vises ikke feltet, og siden fungerer som før. Det samme gjelder hvis Instagram ikke svarer: da vises de forrige innleggene.
+
+### Slik får du en nøkkel
+
+Dette gjøres hos Meta og krever innlogging på kontoen, så det må gjøres av den som eier Instagram-kontoen.
+
+1. Kontoen må være en **profesjonell konto** (Business eller Creator). Bytt i Instagram under Innstillinger → Kontotype og verktøy.
+2. Opprett en app på [developers.facebook.com](https://developers.facebook.com) og legg til produktet **Instagram** med «API setup with Instagram login».
+3. Legg til Instagram-kontoen og lag en **langtidsnøkkel** (access token) med tillatelsen `instagram_business_basic`. For egen konto i utviklermodus trengs ingen godkjenning av appen.
+4. Legg nøkkelen i Vercel under **Settings → Environment Variables** som `INSTAGRAM_ACCESS_TOKEN`, og trykk **Redeploy**.
+5. Valgfritt: legg også inn `CRON_SECRET` (en lang tilfeldig tekst), så bare Vercel kan kjøre fornyelsen.
+
+### Vedlikehold
+
+- Nøkkelen varer i **60 dager**. Hver mandag kl. 06 kjører Vercel `/api/instagram/oppdater`, som ber Instagram forlenge den.
+- Kan ikke nøkkelen fornyes, eller gir Instagram en ny nøkkel, står det en advarsel i loggene i Vercel (Logs). Lag da en ny nøkkel og bytt den ut. Siden går ikke i stykker av det, feltet forsvinner bare.
+- Koden ligger i `src/lib/instagram.ts` (henting), `src/components/InstagramFelt.tsx` (visning) og `src/app/api/instagram/oppdater/route.ts` (fornyelse).
 
 ## Sette opp på Vercel
 

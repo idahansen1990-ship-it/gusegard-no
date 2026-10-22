@@ -1160,3 +1160,34 @@ svg {
   align-items: baseline;
   color: var(--blekk-dempet);
 }
+
+/* ---------- Instagram ---------- */
+
+.insta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+.insta__rute {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--papir-2);
+}
+.insta__rute img {
+  transition: transform 0.3s;
+}
+.insta__rute:hover img {
+  transform: scale(1.05);
+}
+@media (max-width: 820px) {
+  .insta {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}

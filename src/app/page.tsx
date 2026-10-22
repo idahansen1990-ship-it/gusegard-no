@@ -3,12 +3,16 @@ import Link from "next/link";
 import { Landskap } from "@/components/Landskap";
 import { DyrKort } from "@/components/DyrKort";
 import { Egenart } from "@/components/Egenart";
+import { InstagramFelt } from "@/components/InstagramFelt";
 import { dyr } from "@/lib/dyr";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
+
+// Siden er statisk, men lages på nytt i det nyeste fra Instagram hver time.
+export const revalidate = 3600;
 
 const tall = [
   { stor: "2004", liten: "overtok vi gården" },
@@ -206,6 +210,8 @@ export default function Forside() {
           </div>
         </div>
       </section>
+
+      <InstagramFelt />
 
       <section className="seksjon seksjon--tone">
         <div className="container smal sentrert">
