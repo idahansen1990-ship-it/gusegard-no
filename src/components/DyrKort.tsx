@@ -9,10 +9,10 @@ export function DyrKort({ dyr, kort = false }: { dyr: Dyr; kort?: boolean }) {
         {dyr.bilde ? (
           <Image
             src={dyr.bilde}
-            alt={dyr.navn}
+            alt={dyr.alt ?? dyr.navn}
             fill
             sizes="(min-width: 900px) 360px, 100vw"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", objectPosition: dyr.fokus ?? "50% 50%" }}
           />
         ) : (
           <DyrIkon id={dyr.id} />

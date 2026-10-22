@@ -136,6 +136,22 @@ const tegning: Record<DyrId, React.ReactNode> = {
       <circle cx="82" cy="17" r="1.6" fill={INK} />
     </>
   ),
+  gris: (
+    <>
+      {ben(30, 72, 88, "#e69a92", 7)}
+      {ben(44, 72, 88, "#e69a92", 7)}
+      {ben(60, 72, 88, "#e69a92", 7)}
+      {ben(72, 70, 88, "#e69a92", 7)}
+      <path d="M18 54 C8 52 8 40 16 42" stroke="#e69a92" strokeWidth="3.4" fill="none" strokeLinecap="round" />
+      <ellipse cx="46" cy="58" rx="30" ry="20" fill="#f0b9b0" />
+      <circle cx="76" cy="55" r="14" fill="#f0b9b0" />
+      <polygon points="64,48 68,32 80,44" fill="#e69a92" />
+      <ellipse cx="90" cy="60" rx="6.5" ry="7.5" fill="#e69a92" />
+      <circle cx="88" cy="59" r="1.3" fill={INK} />
+      <circle cx="92" cy="61" r="1.3" fill={INK} />
+      <circle cx="79" cy="51" r="1.8" fill={INK} />
+    </>
+  ),
   storfe: (
     <>
       {ben(26, 70, 90, "#a35f30", 7)}

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const tall = [
   { stor: "2004", liten: "overtok vi gården" },
-  { stor: "7", liten: "slags dyr å møte" },
+  { stor: String(dyr.length), liten: "slags dyr å møte" },
   { stor: "2", liten: "bevaringsverdige saueraser" },
   { stor: "fra 200 kr", liten: "per person for bursdag" },
 ];
