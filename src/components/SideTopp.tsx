@@ -1,13 +1,16 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 type Props = {
   overtittel: string;
   tittel: string;
   ingress: string;
   brodsmule?: { href: string; tekst: string };
+  /** Knapper under ingressen, f.eks. «Bestill». */
+  handling?: ReactNode;
 };
 
-export function SideTopp({ overtittel, tittel, ingress, brodsmule }: Props) {
+export function SideTopp({ overtittel, tittel, ingress, brodsmule, handling }: Props) {
   return (
     <section className="sidetopp">
       <div className="container sidetopp__inner">
@@ -19,6 +22,7 @@ export function SideTopp({ overtittel, tittel, ingress, brodsmule }: Props) {
         <p className="overtittel">{overtittel}</p>
         <h1>{tittel}</h1>
         <p className="ingress">{ingress}</p>
+        {handling ? <div className="knapperad">{handling}</div> : null}
       </div>
       <svg
         className="sidetopp__bolge"

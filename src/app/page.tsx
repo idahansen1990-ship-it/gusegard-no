@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Landskap } from "@/components/Landskap";
 import { DyrKort } from "@/components/DyrKort";
+import { Egenart } from "@/components/Egenart";
 import { dyr } from "@/lib/dyr";
 import { site } from "@/lib/site";
 
@@ -56,15 +57,16 @@ export default function Forside() {
           <p className="overtittel">Gård i Kvinesdal</p>
           <h1>Dyr, natur og lokalmat på Guse Gård</h1>
           <p className="ingress">
-            Hos oss møter du høner, lamaer, sauer og kuer, og kan smake på maten
-            fra egen gård. Kom på besøk, hold bursdag eller ta en tur i skogen.
+            Hos oss møter du høner, lamaer, sauer og kuer, og kan handle lokalmat
+            i gårdsbutikken Fedabua. Kom på besøk, hold bursdag, bo på gården
+            eller ta en tur i skogen.
           </p>
           <div className="knapperad">
-            <Link href="/aktiviteter" className="btn btn--primary">
-              Se aktivitetene
+            <Link href="/gardsbutikk" className="btn btn--primary">
+              Besøk Fedabua
             </Link>
-            <Link href="/gardsbutikk" className="btn btn--ghost">
-              Gårdsbutikken
+            <Link href="/aktiviteter" className="btn btn--ghost">
+              Se aktivitetene
             </Link>
           </div>
         </div>
@@ -97,8 +99,8 @@ export default function Forside() {
             </p>
             <p>
               Siden har dyreflokken vokst med ender, gjess, kalkuner, lamaer og
-              storfe. Ved siden av gården driver vi også et sagbruk med
-              produksjon av materialer og ved.
+              storfe, og i dag lager vi også mat av egne råvarer. Ved siden av
+              gården driver vi et sagbruk med produksjon av materialer og ved.
             </p>
             <p>
               <Link className="tekstlenke" href="/om-garden">
@@ -109,7 +111,36 @@ export default function Forside() {
         </div>
       </section>
 
-      <section className="seksjon seksjon--tone">
+      <section className="band">
+        <div className="container todeler">
+          <div>
+            <p className="overtittel overtittel--lys">Gårdsbutikken</p>
+            <h2>Fedabua: mat fra egen gård</h2>
+            <p className="band__tekst">
+              Det meste av råvarene kommer fra gården vår, og med eget slakteri
+              og produksjonskjøkken kan vi bruke enda mer av dem selv. Kom innom
+              Fedabua, eller bestill kjøtt og vilt på telefon eller e-post.
+            </p>
+            <div className="knapperad">
+              <Link href="/gardsbutikk" className="btn btn--honey">
+                Besøk Fedabua
+              </Link>
+              <Link href="/kjott-og-vilt" className="btn btn--lys">
+                Bestill kjøtt og vilt
+              </Link>
+            </div>
+          </div>
+          <ul className="chips" aria-label="Produkter">
+            {produkter.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <Egenart tone />
+
+      <section className="seksjon">
         <div className="container">
           <div className="seksjonstopp">
             <div>
@@ -130,7 +161,7 @@ export default function Forside() {
         </div>
       </section>
 
-      <section className="seksjon">
+      <section className="seksjon seksjon--tone">
         <div className="container">
           <div className="seksjonstopp">
             <div>
@@ -155,28 +186,28 @@ export default function Forside() {
         </div>
       </section>
 
-      <section className="band">
+      <section className="seksjon">
         <div className="container todeler">
           <div>
-            <p className="overtittel overtittel--lys">Gårdsbutikken</p>
-            <h2>Mat fra egen gård</h2>
-            <p className="band__tekst">
-              Det meste av råvarene kommer fra gården vår, og med eget slakteri
-              og produksjonskjøkken kan vi bruke enda mer av dem selv.
-            </p>
-            <Link href="/gardsbutikk" className="btn btn--honey">
-              Se hva vi lager
-            </Link>
+            <p className="overtittel">Overnatting</p>
+            <h2>Bo på gården</h2>
           </div>
-          <ul className="chips" aria-label="Produkter">
-            {produkter.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ul>
+          <div className="tekst">
+            <p>
+              Vi leier ut en hytte på Guse Gård, med to soverom og plass til
+              fem. Kombiner oppholdet med et besøk hos dyra, en tur i skogen og
+              mat fra Fedabua.
+            </p>
+            <div className="knapperad">
+              <Link href="/overnatting" className="btn btn--primary">
+                Se hytta og bestill
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="seksjon">
+      <section className="seksjon seksjon--tone">
         <div className="container smal sentrert">
           <p className="overtittel">Ta kontakt</p>
           <h2>Lyst til å komme på besøk?</h2>

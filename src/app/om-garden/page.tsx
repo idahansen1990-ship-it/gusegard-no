@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Egenart } from "@/components/Egenart";
 import { SideTopp } from "@/components/SideTopp";
 import { mailto } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Om gården",
+  title: "Historien om Guse Gård",
   description:
-    "Historien om Guse Gård i Kvinesdal: fra hanen Tarzan og fire høner til høner, sau, lamaer og storfe. Vi driver også sagbruk.",
+    "Historien om Guse Gård i Kvinesdal: fra hanen Tarzan og fire høner til høner, sau, lamaer og storfe, og til gårdsbutikken Fedabua.",
   alternates: { canonical: "/om-garden" },
 };
 
@@ -41,15 +42,21 @@ const historie = [
     tekst:
       "Siste ankomst var to storfe av rasen limousin, som kom høsten 2011.",
   },
+  {
+    ar: "I dag",
+    tittel: "Fra dyr til mat: Fedabua",
+    tekst:
+      "Et nybygd slakteri og produksjonskjøkken på gården gjør at vi kan bruke enda mer av våre egne råvarer til foredling. Det vi lager selger vi i gårdsbutikken Fedabua: viltkjøtt, speket vilt, saft, syltetøy, krydderoljer, edikk, urtesalt og honning.",
+  },
 ];
 
 export default function OmGarden() {
   return (
     <>
       <SideTopp
-        overtittel="Om gården"
+        overtittel="Historien om Guse Gård"
         tittel="Fra hanen Tarzan til hele flokken"
-        ingress="Vår hovedproduksjon er fjærfe og sau. Her kan du lese hvordan gården har vokst siden vi overtok i 2004."
+        ingress="Guse Gård er en familiegård i Kvinesdal. Vår hovedproduksjon er fjærfe og sau, og vi legger vekt på at dyra skal ha det godt."
       />
 
       <section className="seksjon">
@@ -65,15 +72,20 @@ export default function OmGarden() {
               </li>
             ))}
           </ol>
-          <p>
+          <p className="hurtiglenker">
             <Link className="tekstlenke" href="/dyr">
               Møt dyra på gården →
+            </Link>
+            <Link className="tekstlenke" href="/gardsbutikk">
+              Besøk Fedabua →
             </Link>
           </p>
         </div>
       </section>
 
-      <section className="seksjon seksjon--tone">
+      <Egenart tone tittel="Derfor smaker det av Guse Gård" />
+
+      <section className="seksjon">
         <div className="container todeler">
           <div>
             <p className="overtittel">Ved siden av gården</p>

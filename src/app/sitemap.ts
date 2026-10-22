@@ -11,6 +11,7 @@ const sider = [
   "/aktiviteter/villmark",
   "/overnatting",
   "/gardsbutikk",
+  "/kjott-og-vilt",
   "/kontakt",
 ];
 
