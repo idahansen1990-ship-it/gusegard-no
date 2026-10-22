@@ -13,6 +13,7 @@ export const site = {
   adresse: { gate: "Åsevegen 896", postnummer: "4480", sted: "Kvinesdal" },
   kart: "https://www.google.com/maps/search/?api=1&query=%C3%85sevegen+896%2C+4480+Kvinesdal",
   facebook: "https://www.facebook.com/p/Guse-G%C3%A5rd-100064846714656/",
+  instagram: "https://www.instagram.com/gusegard/",
   bondensMarked: "https://www.bondensmarked.no/produsenter/guse-gard",
   booking: "https://www.booking.com/hotel/no/guse-gard.html",
   airbnb: "https://www.airbnb.com/rooms/13713485",

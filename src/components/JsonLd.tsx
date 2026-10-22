@@ -16,7 +16,7 @@ export function JsonLd() {
       addressLocality: site.adresse.sted,
       addressCountry: "NO",
     },
-    sameAs: [site.facebook],
+    sameAs: [site.facebook, site.instagram],
   };
   return (
     <script

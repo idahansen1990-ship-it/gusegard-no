@@ -223,6 +223,25 @@ export default function Forside() {
               {site.epost}
             </a>
           </div>
+          <p className="hurtiglenker hurtiglenker--midt">
+            <span>Følg oss også på</span>
+            <a
+              className="tekstlenke"
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+            <a
+              className="tekstlenke"
+              href={site.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+          </p>
         </div>
       </section>
     </>

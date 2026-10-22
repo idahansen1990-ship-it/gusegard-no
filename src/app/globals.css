@@ -1154,3 +1154,9 @@ svg {
     aspect-ratio: 4 / 3;
   }
 }
+
+.hurtiglenker--midt {
+  justify-content: center;
+  align-items: baseline;
+  color: var(--blekk-dempet);
+}
